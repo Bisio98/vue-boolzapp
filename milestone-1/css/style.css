@@ -1,0 +1,224 @@
+/* GEMERAL */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    background-image:linear-gradient(#009688, #D5DBD9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 80%;
+    height: 90vh;
+    display: flex;
+}
+
+i{
+    cursor: pointer;
+    color: gray;
+    font-size: 22px;
+    margin: 10px;
+}
+
+/* LEFT COLUMN */
+
+
+/* CONTACTS */
+.contacts{
+    min-width: 300px;
+    width: 30%;
+    border: 1px solid lightgray;
+}
+
+
+/* NOTIFICATIONS */
+.alarm{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: #8EDAFB;
+}
+
+.alarm .box{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #F3FBFE;
+    margin: 10px;
+}
+
+.alarm .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alarm .comand span{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/* SEARCH */
+.search{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background-color: #F3EEEA;
+}
+
+.inside_search{
+    background-color: white;
+    width: 100%;
+}
+
+.search input{
+    border: none;
+    font-size: 20px;
+    width: 80%;
+}
+
+/* CONTACT LIST */
+.messages_from_contacts{
+    background-color: white;
+    height: calc(90vh - 200px);
+    width: 100%;
+    list-style: none;
+    overflow-y: scroll;
+}
+
+.messages_from_contacts li{
+   padding: 20px 0;
+   border-bottom: 1px solid #F3EEEA;
+}
+
+/* CHATS */
+.chat{
+    display: flex;
+    overflow-y: scroll;
+}
+
+.container_chat{
+    width: 80%;
+    height: 60vh;
+    list-style: none;
+}
+
+.sent{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.received .mex, .sent .mex{
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.received .mex{
+    background-color: white;
+    min-width: 200px;
+    max-width: 40%;
+    
+}
+
+.sent .mex{
+    background-color: #D5F9BA;
+    min-width: 200px;
+    max-width: 55%;
+}
+
+.mex .time{
+    text-align: right;
+    color: gray;
+    font-size: 12px;
+}
+
+/* RIGHT COLUMN */
+.chats{
+    width: 70%;
+    border: 1px solid lightgray;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    background-color: #F3EEEA;
+}
+
+.user ul{
+    display: flex;
+    list-style: none;
+}
+
+.profile_pic{
+    display: flex;
+    align-items: center;
+}
+
+.profile_pic img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin:0 10px;
+}
+
+.profile_pic span{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+}
+
+.infos span{
+    font-size: 15px;
+    font-weight: 600;
+    color: gray;
+}
+
+
+/* MAIN CHAT */
+.chat{
+    width: 100%;
+    height: calc(90vh - (70px + 70px ));
+    background-image: url(../img/mine.jpg) ;
+}
+
+.chat .container_chat{
+    width: 80%;
+    margin: auto;
+}
+
+/* FOOTER CHAT */
+.send{
+    height: 70px;
+    width: 100%;
+    background-color: #F3EEEA;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.send input{
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
