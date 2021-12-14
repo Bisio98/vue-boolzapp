@@ -68,8 +68,8 @@
                 </div>
 
                 <div class="chat">
-                    <ul class="container_chat">
-                        <li v-for="(mess,index) in contacts[activeItem].messages" :class=" mess.status ">
+                    <ul v-if="contacts[activeItem].showChat" class="container_chat">
+                        <li  v-for="(mess,index) in contacts[activeItem].messages" :class=" mess.status ">
                             <div class="mex">
                                 <p>
                                     {{ mess.text }}

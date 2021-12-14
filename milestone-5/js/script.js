@@ -16,6 +16,7 @@ var app = new Vue({
                 avatar: '_1',
                 mexRespond: null,
                 visible: true,
+                showChat: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -38,6 +39,7 @@ var app = new Vue({
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
+                showChat: true,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -60,6 +62,7 @@ var app = new Vue({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
+                showChat: true,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -82,6 +85,7 @@ var app = new Vue({
                 name: 'Luisa',
                 avatar: '_4',
                 visible: true,
+                showChat: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -105,11 +109,21 @@ var app = new Vue({
         },
         createMex: function(){
             this.time = dayjs().format('DD/MM/YYYY HH:mm:ss');
-            this.contacts[this.activeItem].messages.push({
-                date: this.time,
-                text: this.tmpMessage,
-                status: 'sent'
-            });
+            this.contacts[this.activeItem].showChat = true;
+            this.showMenu = false;
+            if(this.contacts[this.activeItem].messages.length > 1){
+                this.contacts[this.activeItem].messages.push({
+                    date: this.time,
+                    text: this.tmpMessage,
+                    status: 'sent'
+                })
+            }else{
+                this.contacts[this.activeItem].messages[0] = {
+                    date: this.time,
+                    text: this.tmpMessage,
+                    status: 'sent'
+                };
+            }
             this.tmpMessage = '';
             this.respond();
             
@@ -136,12 +150,29 @@ var app = new Vue({
             }
         },
         showOptions: function(index){
-            this.showMenu = !this.showMenu;
-            this.showOptionsMex = index;
+            if((this.showMenu === true) && (this.showOptionsMex !== index)){
+                this.showOptionsMex = index;
+                this.showMenu = true;
+            }else if((this.showMenu === true) && (this.showOptionsMex === index)){
+                this.showMenu = false;
+            }
+            else{
+                this.showOptionsMex = index;
+                this.showMenu = true;
+            }
         },
         deleteMessage: function(index){
-            this.showMenu = false;
-            this.contacts[this.activeItem].messages.splice(index,1);
+            if(this.contacts[this.activeItem].messages.length > 1){
+                this.showMenu = false;
+                this.contacts[this.activeItem].messages.splice(index,1);7
+            }else{
+                this.contacts[this.activeItem].showChat = false;
+                this.contacts[this.activeItem].messages[0]= {
+                    dat: '',
+                    text: '',
+                    status: ''
+                }
+            }
         }
     }
 });
