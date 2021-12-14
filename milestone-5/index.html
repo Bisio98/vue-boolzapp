@@ -41,13 +41,15 @@
                     </div>
                 </div>
                 <ul class="messages_from_contacts">
-                    <li @click="makeActive(index)" v-for="(singleChat,index) in contacts" v-if=" singleChat.visible" class="profile_pic" :class="{ active : index === activeItem}">
-                        <img :src="'img/avatar' + singleChat.avatar + '.jpg'" alt="singleChat.name">
-                        <div class="last_message">
-                            <h3>{{ singleChat.name }}</h3>
-                            <span>{{ singleChat.messages[singleChat.messages.length -1].text.slice(0,20)}}...</span>
+                    <li @click="makeActive(index)" v-for="(singleChat,index) in contacts">
+                        <div v-if=" singleChat.visible" class="profile_pic" :class="{ active : index === activeItem}">
+                            <img :src="'img/avatar' + singleChat.avatar + '.jpg'" alt="singleChat.name">
+                            <div class="last_message">
+                                <h3>{{ singleChat.name }}</h3>
+                                <span>{{ singleChat.messages[singleChat.messages.length -1].text.slice(0,20)}}...</span>
+                            </div>
+                            <span class="time">{{ singleChat.messages[singleChat.messages.length -1].date }}</span>
                         </div>
-                        <span class="time">{{ singleChat.messages[singleChat.messages.length -1].date }}</span>
                     </li>
                 </ul>
             </div>

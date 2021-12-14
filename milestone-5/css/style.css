@@ -98,9 +98,14 @@ i{
 }
 
 .messages_from_contacts li{
-   padding: 20px 0;
    border-bottom: 1px solid #F3EEEA;
    cursor: pointer;
+}
+
+.messages_from_contacts .profile_pic{
+    padding: 20px 0;
+    height: 100%;
+    width: 100%;
 }
 
 .messages_from_contacts .active{
