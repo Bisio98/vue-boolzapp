@@ -107,6 +107,21 @@ i{
     background-color: lightgray;
 }
 
+.messages_from_contacts .last_message span{
+    font-size: 14px;
+    color: gray;
+}
+
+.messages_from_contacts .time{
+    position: relative;
+    bottom: 20px;
+    margin-right: 5px;
+    flex-grow: 2;
+    display: inline-block;
+    text-align: right;
+    color: gray;
+    font-size: 12px;
+}
 /* CHATS */
 .chat{
     display: flex;
@@ -125,30 +140,65 @@ i{
 }
 
 .mex{
-    padding: 10px 20px;
+    padding: 20px 30px;
     border-radius: 10px;
     margin: 10px 0;
+    min-width: 35%;
+    max-width: 50%;
+    position: relative;
+    line-break: auto;
+}
+
+.mex i{
+    display: none;
+    z-index: 1;
+    font-size: 20px;
+    overflow: hidden;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.mex:hover i{
+    display: inline-block;
+}
+
+.hide{
+    display: none;
+}
+
+.show_menu{
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    padding: 20px;
+    right: 10px;
+    top: 40px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.show_menu span{
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
 }
 
 .received .mex{
-    background-color: white;
-    min-width: 200px;
-    max-width: 40%;
-    
+    background-color: white;    
 }
 
 .sent .mex{
     background-color: #D5F9BA;
-    min-width: 200px;
-    max-width: 55%;
 }
 
 .mex .time{
     text-align: right;
     color: gray;
     font-size: 12px;
-    position: relative;
-    top: 5px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
 }
 
 /* RIGHT COLUMN */

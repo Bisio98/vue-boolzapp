@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <main>
+        <div class="container" id="root">
+            <div class="contacts">
+                <div class="user">
+                    <div class="profile_pic">
+                        <img src="img/avatar_io.jpg" alt="User Profile Pic">
+                        <h3>Nome Utente</h3>
+                    </div>
+                    <ul class="commands">
+                        <li><i class="fas fa-circle-notch"></i></li>
+                        <li><i class="fas fa-comment-alt"></i></li>
+                        <li><i class="fas fa-ellipsis-v"></i></li>
+                    </ul>
+                </div>
+                <div class="alarm">
+                    <div class="box">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <div class="comand">
+                        <h3>Ricevi notifiche di nuovi messaggi</h3>
+                        <span>Attiva notifiche desktop</span>
+                    </div>
+                </div>
+                <div class="search">
+                    <div class="inside_search">
+                        <i class="fas fa-search"></i>
+                        <input @keyup.enter="search" v-model="searched" type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+                <ul class="messages_from_contacts">
+                    <li @click="makeActive(index)" v-for="(singleChat,index) in contacts" v-if=" singleChat.visible" class="profile_pic" :class="{ active : index === activeItem}">
+                        <img :src="'img/avatar' + singleChat.avatar + '.jpg'" alt="singleChat.name">
+                        <div class="last_message">
+                            <h3>{{ singleChat.name }}</h3>
+                            <span>{{ singleChat.messages[singleChat.messages.length -1].text.slice(0,20)}}...</span>
+                        </div>
+                        <span class="time">{{ singleChat.messages[singleChat.messages.length -1].date }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="chats">
+                <div class="user">
+                    <div class="profile_pic">
+                        <img :src="'img/avatar' + contacts[activeItem].avatar + '.jpg'" alt="contacts.name">
+                        <div class="infos">
+                            <h3>{{ contacts[activeItem].name }}</h3>
+                            <span>Ultimo accesso oggi alle</span>
+                        </div>
+                    </div>
+                    <ul class="commands">
+                        <li><i class="fas fa-search"></i></li>
+                        <li><i class="fas fa-paperclip"></i></li>
+                        <li><i class="fas fa-ellipsis-v"></i></li>
+                    </ul>
+                </div>
+
+                <div class="chat">
+                    <ul class="container_chat">
+                        <li v-for="(mess,index) in contacts[activeItem].messages" :class=" mess.status ">
+                            <div class="mex">
+                                <p>
+                                    {{ mess.text }}
+                                </p>
+                                <i @click="showOptions(index)" class="fas fa-chevron-down"></i>
+                                <div class="hide" 
+                                v-if="showMenu" :class="{show_menu: index === showOptionsMex} ">
+                                    <span>Message info</span>
+                                    <br>
+                                    <span @click="deleteMessage(index)">Delete message</span>
+                                </div>
+                                <div class="time">{{ mess.date }}</div>
+                               
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="send">
+                    <i class="far fa-smile"></i>
+                    <input v-model="tmpMessage" 
+                    @keyup.enter="createMex" placeholder="Scrivi un messaggio" type="text" name="" id="">
+                    <i class="fas fa-microphone"></i>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.4.1/dayjs.min.js" integrity="sha512-sIJLH6RIjwp62tb8srpB5he4ZGfPN8GGxjrkxxrp6weeo62nHE9ORrzwAbexzqPPxZNKuESCwPM1Z/PL3cULVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+    </main>
+</body>
+</html>
