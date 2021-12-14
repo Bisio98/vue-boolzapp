@@ -101,7 +101,7 @@ var app = new Vue({
             this.activeItem = index;
         },
         createMex: function(){
-            this.time = dayjs().format('DD/MM/YYYY ') + dayjs().format('HH:mm:ss');
+            this.time = dayjs().format('DD/MM/YYYY HH:mm:ss');
             this.contacts[this.activeItem].messages.push({
                 date: this.time,
                 text: this.tmpMessage,
@@ -113,7 +113,7 @@ var app = new Vue({
         },
         respond: function(){
             this.mexRespond = setTimeout(() => {
-                this.time = dayjs().format('DD/MM/YYYY ') + dayjs().format('HH:mm:ss');
+                this.time = dayjs().format('DD/MM/YYYY HH:mm:ss');
                 this.contacts[this.activeItem].messages.push({
                     date: this.time,
                     text: 'Ok',

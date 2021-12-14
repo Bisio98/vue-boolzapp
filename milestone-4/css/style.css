@@ -103,6 +103,10 @@ i{
    cursor: pointer;
 }
 
+.messages_from_contacts .active{
+    background-color: aquamarine;
+}
+
 /* CHATS */
 .chat{
     display: flex;
@@ -120,7 +124,7 @@ i{
     justify-content: flex-end;
 }
 
-.received .mex, .sent .mex{
+.mex{
     padding: 10px 20px;
     border-radius: 10px;
     margin: 10px 0;
@@ -143,6 +147,8 @@ i{
     text-align: right;
     color: gray;
     font-size: 12px;
+    position: relative;
+    top: 5px;
 }
 
 /* RIGHT COLUMN */
